@@ -70,6 +70,7 @@ img
 .name
 {
     font-size: 100%;
+    font-family: "Roboto-Med"
 }
 
 .userIcon
@@ -122,4 +123,9 @@ span
     background-color: rgba(89, 255, 56, 0.5);
     height: 1.5vh;
     border-radius: 1.5vh;
+}
+
+.lastJoin 
+{
+    font-family: "Roboto-Med"
 }

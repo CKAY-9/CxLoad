@@ -28,6 +28,13 @@
 
     $settings = json_decode(file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/data/settings.json"), true);
     $display = json_decode(file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/data/visuals.json"), true);
+    $players = json_decode(file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/data/players.json"), true);
+
+    if (!isset($players[$steam_id]))
+    {
+        $players += [$steam_id => floor(microtime(true) * 1000)];
+        file_put_contents($_SERVER["DOCUMENT_ROOT"] . "/data/players.json", json_encode($players));
+    }
 ?>
 
 <head>
@@ -48,33 +55,36 @@
             <section class="flex-col align side" <?php if (!$display["player_info"]) { echo "style='display: none'"; } ?> >
                 <h1 id="info-header">Your Info</h1>
                 <div class="flex-col gap-20 justify align">
-                    <div class="flex-row gap-10 align">
+                    <div class="flex-col gap-10 align">
                         <img src=<?php echo $data["response"]["players"][0]["avatarfull"] ?> alt="userIcon" class="userIcon" id="userIcon">
                         <div class="name" id="displayName"><?php echo $data["response"]["players"][0]["personaname"] ?></div>
                     </div>
                     <div class="steamID" id="steamID">Steam ID: <?php echo $steam_id ?></div>
+                    <div class="lastJoin" id="lastJoin"></div>
                 </div>
             </section>
             <section class="flex-col align" <?php if (!$display["main_info"]) { echo "style='display: none'"; } ?> style="flex: 1; min-width: 30vw;">
                 <h1 id="serverName"><?php echo $settings["server_name"] ?></h1>
                 <span id="serverDesc"><?php echo $settings["server_desc"] ?></span>
 
-                <div class="flex-col align justify" style=" min-width: 30vw;">
+                <div class="flex-col align justify" style="min-width: 30vw;">
                     <div class="flex-row gap-30" style="margin-top: 20px;">
-                        <div class="flex-col gap-10 align">
+                        <div class="flex-col gap-10 align" <?php if ($settings["server_site"] === "") { echo "style=\"display: none;\""; } ?> >
                             <img src="./resources/loading/website.svg" alt="website">
                             <div class="website" id="website"><?php echo $settings["server_site"] ?></div>
                         </div>
-                        <div class="flex-col gap-10 align">
+                        <div class="flex-col gap-10 align" <?php if ($settings["server_donation"] === "") { echo "style=\"display: none;\""; } ?>>
                             <img src="./resources/loading/store.svg" alt="store">
                             <div class="website" id="store"><?php echo $settings["server_donation"] ?></div>
                         </div>
                     </div>
 
-                    <div id="loadStatus" style="margin-top: 2vh;">Retrieving server info...</div>
-                    <div class="loadingBar" id="loadingBar">
-                        <div class="file" id="file">Workshop downloading...</div>
-                        <div class="finishedBar" id="finishedBar"></div>
+                    <div <?php if (!$display["loadingBar"]) { echo "style=\"display: none;\""; } ?> style="width: 100%" >
+                        <div id="loadStatus" style="margin-top: 2vh; text-align: center">Retrieving server info...</div>
+                        <div class="loadingBar" id="loadingBar">
+                            <div class="file" id="file">Workshop downloading...</div>
+                            <div class="finishedBar" id="finishedBar"></div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -111,6 +121,8 @@
 
     <script src="../vendor/jQuery/jquery.js"></script>
     <script>
+        <?php echo "$(\"#lastJoin\").text(\"Last joined: \" + new Date(" . $players[$steam_id] . ").toLocaleDateString())"; ?>
+
         var imageIndex = 1;
         var imagesArray = [
             "resources/custom/bg1.jpg",
@@ -127,6 +139,13 @@
             }, 1500);
         }
 
-        <?php if ($display["background"]) { echo "setInterval(changeBackground, 10000); document.getElementById(\"bg-1\").style.backgroundImage = \"url('\"+ imagesArray[0] +\"')\";  "; } ?>
+        <?php
+            if ($display["background"]) 
+            {
+                echo "setInterval(changeBackground, 10000); document.getElementById(\"bg-1\").style.backgroundImage = \"url('\"+ imagesArray[0] +\"')\";  "; 
+            } 
+            $players[$steam_id] = floor(microtime(true) * 1000);
+            file_put_contents($_SERVER["DOCUMENT_ROOT"] . "/data/players.json", json_encode($players));
+        ?>
     </script>
 </body>

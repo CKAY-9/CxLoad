@@ -56,24 +56,15 @@
 
     <div class="seperator"></div>
 
-    <form action="" class="flex-col gap-20">
-        <div class="flex-row align gap-40"><h2>Server Info</h2> <a href="/update.php?disabled=server" class="button">
-            <?php if ($display["server_info"]) { echo "Disable"; } else { echo "Enable"; } ?>
-        </a></div>
-    </form>
+    <form action="">
+        <h2>Look / Feel</h2>
 
-    <div class="seperator"></div>
-
-    <form action="" class="flex-col gap-20">
         <div class="flex-row align gap-40"><h2>Player Info</h2> <a href="/update.php?disabled=player" class="button">
         <?php if ($display["player_info"]) { echo "Disable"; } else { echo "Enable"; } ?>
         </a></div>
-    </form>
-
-    <div class="seperator"></div>
-
-    <form action="">
-        <h2>Look / Feel</h2>
+        <div class="flex-row align gap-40"><h2>Server Info</h2> <a href="/update.php?disabled=server" class="button">
+            <?php if ($display["server_info"]) { echo "Disable"; } else { echo "Enable"; } ?>
+        </a></div>
         <div class="flex-row align gap-40"><h2>Backgrounds</h2> <a href="/update.php?disabled=background" class="button">
         <?php 
             if ($display["background"]) { echo "Disable"; } else {
@@ -81,16 +72,14 @@
             } 
         ?>
         </a>
-        (Found in ./resources/custom)    
+        (Found in ./resources/custom, files must be .jpg and named bg1-3)    
         </div>
-        <div class="flex-row align gap-40"><h2>Server Logo</h2> <a href="/update.php?disabled=background" class="button">
+        <div class="flex-row align gap-40"><h2>Loading Bar</h2> <a href="/update.php?disabled=loading" class="button">
         <?php 
-            if ($display["server_logo"]) { echo "Disable"; } else {
+            if ($display["loadingBar"]) { echo "Disable"; } else {
                 echo "Enable"; 
             } 
         ?>
         </a>
-        (Found in ./resources/custom)
-        </div>
     </form>
 </div>

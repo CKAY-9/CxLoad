@@ -28,6 +28,9 @@
             case "background":
                 $display["background"] = !$display["background"];
                 break;
+            case "loading":
+                $display["loadingBar"] = !$display["loadingBar"];
+                break;
             default:
                 break;
         }
