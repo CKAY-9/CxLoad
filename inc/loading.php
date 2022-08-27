@@ -2,6 +2,12 @@
 
     require("./config.php");
 
+    if ($api_key === "") 
+    {
+        echo "<h1 style='margin: 0; padding: 0; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);'>Ok, so... The website admin forgot to put their Steam API key!</h1>";
+        die();
+    }
+
     $steam_id = "";
     $gamemode = "";
 
@@ -105,17 +111,22 @@
 
     <script src="../vendor/jQuery/jquery.js"></script>
     <script>
-        var imageIndex = 0;
+        var imageIndex = 1;
         var imagesArray = [
-            "../resources/custom/bg1.jpg",
-            "../resources/custom/bg2.jpg",
-            "../resources/custom/bg3.jpg"
+            "resources/custom/bg1.jpg",
+            "resources/custom/bg2.jpg",
+            "resources/custom/bg3.jpg"
         ];
 
-        function changeBackground(){ 
-            document.getElementById("bg-2").style.backgroundImage = "url('"+ imagesArray[1] +"')";  
+        function changeBackground(){
+            $("#bg-1").fadeOut(1500)
+            setTimeout(() => {
+                var index = imageIndex++ % imagesArray.length;
+                $("#bg-1").css("background","url('"+ imagesArray[index] +"')");
+                $("#bg-1").fadeIn(1500);
+            }, 1500);
         }
 
-        <?php if ($display["background"]) { echo "setInterval(changeBackground, 5000); document.getElementById(\"bg-2\").style.backgroundImage = \"url('\"+ imagesArray[1] +\"')\";  "; } ?>
+        <?php if ($display["background"]) { echo "setInterval(changeBackground, 10000); document.getElementById(\"bg-1\").style.backgroundImage = \"url('\"+ imagesArray[0] +\"')\";  "; } ?>
     </script>
 </body>
