@@ -1,4 +1,4 @@
-# IceLoad
+# CxLoad
 
 **MAKE SURE YOU EDIT `config.php` OR ELSE IT WILL NOT WORK!**
 
