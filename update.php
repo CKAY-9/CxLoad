@@ -9,13 +9,17 @@
         die();
     }
 
+    require("inc/utils.php");
+    setupDefaultJSONValues();
+
     // Ensure that no get requests are processed
     if ($_SERVER["REQUEST_METHOD"] === "GET")
     {
         $disable = explode("=", $_SERVER["QUERY_STRING"])[1];
         $display = json_decode(file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/data/visuals.json"), true);
 
-        switch ($disable) {
+        switch ($disable) 
+        {
             case "server":
                 $display["server_info"] = !$display["server_info"];
                 break;
@@ -29,16 +33,26 @@
                 $display["background"] = !$display["background"];
                 break;
             case "loading":
-                $display["loadingBar"] = !$display["loadingBar"];
+                $display["loading_bar"] = !$display["loading_bar"];
                 break;
             default:
                 break;
         }
+
+        if (isset($_GET["loading_style"])) 
+        {
+            $display["loading_style"] = htmlspecialchars($_GET["loading_style"]); 
+        }
+
         file_put_contents($_SERVER["DOCUMENT_ROOT"] . "/data/visuals.json", json_encode($display));
     }
     else
     {
-        $json = "{\"server_name\": \"" . $_POST["server_name"] . "\", \"server_desc\": \"" . $_POST["server_desc"] . "\", \"server_site\": \"" . $_POST["server_site"] . "\", \"server_donation\": \"" . $_POST["server_donation"] . "\"}";
+        $json = "{\"server_name\": \"" . $_POST["server_name"] . 
+            "\", \"server_desc\": \"" . $_POST["server_desc"] . 
+            "\", \"server_site\": \"" . $_POST["server_site"] . 
+            "\", \"server_donation\": \"" . $_POST["server_donation"] .  
+            "\"}";
         file_put_contents("./data/settings.json", $json);
     }
 

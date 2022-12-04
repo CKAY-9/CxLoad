@@ -1,6 +1,28 @@
-# CxLoad
+# **CxLoad**
 
-**MAKE SURE YOU EDIT `config.php` OR ELSE IT WILL NOT WORK!**
+### MAKE SURE YOU EDIT `./config.php` OR ELSE IT WILL NOT WORK!
 
-**TODO List:** 
-- Align icons to the top of text instead of the left
+</br>
+
+*Dates are in the `day/month/year` format*
+
+
+## Future Plans:
+- None at the moment, might revisit this later
+
+</br>
+
+## Version 1.1 (3/12/22):
+- Added style selecting
+- Fixed spelling/grammar is some places
+- Made code more readable
+- Changed folder structure
+- Changed default loading style
+- Added default value checking for settings (seen in `./inc/utils.php`)
+
+</br>
+
+## Version 1.0 (25/8/22):
+- Initial Release
+
+</br>

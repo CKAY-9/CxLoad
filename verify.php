@@ -4,8 +4,8 @@
 ?>
 
 <head>
-    <link rel="stylesheet" href="./styles/style.css">
-    <title>IceLoad | Verification</title>
+    <link rel="stylesheet" href="./inc/styles/style.css">
+    <title>CxLoad | Verification</title>
 </head>
 
 <div class="container flex-col align justify">

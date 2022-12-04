@@ -4,7 +4,7 @@
 
     if ($api_key === "") 
     {
-        echo "<h1 style='margin: 0; padding: 0; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);'>Ok, so... The website admin forgot to put their Steam API key!</h1>";
+        echo "<h1 style='margin: 0; padding: 0; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);'>The website admin forgot to put their Steam API key!</h1>";
         die();
     }
 
@@ -43,6 +43,10 @@
         {
             echo "<style>* { background: #222; display: none; }</style>";
         }
+        else 
+        {
+            echo "<link rel=\"stylesheet\" href=\"./inc/styles/loading/" . $display["loading_style"] . ".css\">";
+        }
     ?>
 </head>
 
@@ -52,7 +56,7 @@
         <div id="bg-2" class="bg"></div>
 
         <div class="content">
-            <section class="flex-col align side" <?php if (!$display["player_info"]) { echo "style='display: none'"; } ?> >
+            <section id="userInfo" class="flex-col align side" <?php if (!$display["player_info"]) { echo "style='display: none'"; } ?> >
                 <h1 id="info-header">Your Info</h1>
                 <div class="flex-col gap-20 justify align">
                     <div class="flex-col gap-10 align">
@@ -63,7 +67,7 @@
                     <div class="lastJoin" id="lastJoin"></div>
                 </div>
             </section>
-            <section class="flex-col align" <?php if (!$display["main_info"]) { echo "style='display: none'"; } ?> style="flex: 1; min-width: 30vw;">
+            <section id="mainInfo" class="flex-col align" <?php if (!$display["main_info"]) { echo "style='display: none'"; } ?> style="flex: 1; min-width: 30vw;">
                 <h1 id="serverName"><?php echo $settings["server_name"] ?></h1>
                 <span id="serverDesc"><?php echo $settings["server_desc"] ?></span>
 
@@ -79,7 +83,7 @@
                         </div>
                     </div>
 
-                    <div <?php if (!$display["loadingBar"]) { echo "style=\"display: none;\""; } ?> style="width: 100%" >
+                    <div <?php if (!$display["loading_bar"]) { echo "style=\"display: none;\""; } ?> style="width: 100%" >
                         <div id="loadStatus" style="margin-top: 2vh; text-align: center">Retrieving server info...</div>
                         <div class="loadingBar" id="loadingBar">
                             <div class="file" id="file">Workshop downloading...</div>
@@ -88,7 +92,7 @@
                     </div>
                 </div>
             </section>
-            <section class="side flex-col align" <?php if (!$display["server_info"]) { echo "style='display: none'"; } ?>>
+            <section id="serverInfo" class="side flex-col align" <?php if (!$display["server_info"]) { echo "style='display: none'"; } ?>>
                 <h1>Server Info</h1>
                 <div class="flex-col gap-30" style="margin-top: 20px;">
                     <div class="flex-row gap-10 align">

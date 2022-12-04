@@ -1,11 +1,17 @@
+<?php
+
+    require("inc/utils.php");
+    setupDefaultJSONValues();
+
+?>
+
 <head>
-    <title>IceLoad by CND Ice</title>
-    <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="./styles/loading.css">
+    <title>CxLoad by Camerxn</title>
+    <link rel="stylesheet" href="./inc/styles/style.css">
 </head>
 
 <body>  
-    <script src="./inc/loading.js"></script>
+    <script src="./inc/js/loading.js"></script>
     <?php include("./inc/loading.php"); ?>
-    <script src="./inc/data.js"></script>
+    <script src="./inc/js/data.js"></script>
 </body>

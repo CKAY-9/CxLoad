@@ -4,4 +4,3 @@ function GameDetails( servername, serverurl, mapname, maxplayers, steamid, gamem
     var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + params;
     window.location.href = newurl;
 }
-

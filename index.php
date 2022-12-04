@@ -3,15 +3,18 @@
     session_start();
     $_SESSION["verified"] = FALSE;
 
+    require("inc/utils.php");
+    setupDefaultJSONValues();
+
 ?>
 
 <head>
-    <link rel="stylesheet" href="./styles/style.css">
-    <title>IceLoad | Home</title>
+    <link rel="stylesheet" href="./inc/styles/style.css">
+    <title>CxLoad | Home</title>
 </head>
 
 <div class="container">
-    <h1>IceLoad <span class="small-text">Developed by CND Ice</span></h1>
+    <h1>CxLoad <span class="small-text">Developed by <a href="https://github.com/Camerxxn" target="_blank">Camerxn</a></span></h1>
     
     <div class="flex-row gap-30">
         <a class="button" href="/edit.php">Config</a>
