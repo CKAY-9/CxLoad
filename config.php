@@ -1,6 +1,4 @@
 <?php
-    // Developed by CND Ice
-    
     // Steam IDs that are allowed to edit the loading screen...
     $allowed_users = [""];
 
