@@ -4,7 +4,7 @@ require($_SERVER["DOCUMENT_ROOT"] . "/config.php");
 
 //Version 3.2
 $steamauth['apikey'] = $api_key;
-$steamauth['domainname'] = "127.0.0.1";
+$steamauth['domainname'] = $_SERVER['SERVER_NAME'];
 $steamauth['logoutpage'] = "";
 $steamauth['loginpage'] = "";
 
