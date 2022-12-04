@@ -19,6 +19,7 @@
 - Changed folder structure
 - Changed default loading style
 - Added default value checking for settings (seen in `./inc/utils.php`)
+- Changed License to AGPL-3.0
 
 </br>
 
