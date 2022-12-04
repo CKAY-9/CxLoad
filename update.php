@@ -5,7 +5,7 @@
     // User must be verified to update loading screen
     if (!$_SESSION["verified"])
     {
-        headers("Location: /");
+        header("Location: /");
         die();
     }
 
