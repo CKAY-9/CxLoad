@@ -6,7 +6,7 @@
 ?>
 
 <head>
-    <title>CxLoad by Camerxn</title>
+    <title>CxLoad by Terrafxrm</title>
     <link rel="stylesheet" href="./inc/styles/style.css">
 </head>
 
