@@ -14,7 +14,7 @@
 </head>
 
 <div class="container">
-    <h1>CxLoad <span class="small-text">Developed by <a href="https://github.com/Terrafxrm" target="_blank">Terrafxrm</a></span></h1>
+    <h1>CxLoad <span class="small-text">Developed by <a href="https://github.com/Camerxxn" target="_blank">Camerxn</a></span></h1>
     
     <div class="flex-row gap-30">
         <a class="button" href="/edit.php">Config</a>
