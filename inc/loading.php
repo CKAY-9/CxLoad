@@ -128,17 +128,19 @@
         <?php echo "$(\"#lastJoin\").text(\"Last joined: \" + new Date(" . $players[$steam_id] . ").toLocaleDateString())"; ?>
 
         var imageIndex = 1;
-        var imagesArray = [
-            "resources/custom/bg1.jpg",
-            "resources/custom/bg2.jpg",
-            "resources/custom/bg3.jpg"
-        ];
+        
+        var imagesArray = <?php $out = array();
+        foreach (glob('./resources/backgrounds/*') as $filename) {
+            $p = pathinfo($filename);
+            $out[] = $p['filename'] . "." . pathinfo($filename, PATHINFO_EXTENSION);
+        }
+        echo json_encode($out); ?>;
 
         function changeBackground(){
             $("#bg-1").fadeOut(1500)
             setTimeout(() => {
                 var index = imageIndex++ % imagesArray.length;
-                $("#bg-1").css("background","url('"+ imagesArray[index] +"')");
+                $("#bg-1").css("background","url('resources/backgrounds/"+ imagesArray[index] +"')");
                 $("#bg-1").fadeIn(1500);
             }, 1500);
         }
@@ -146,7 +148,7 @@
         <?php
             if ($display["background"]) 
             {
-                echo "setInterval(changeBackground, 10000); document.getElementById(\"bg-1\").style.backgroundImage = \"url('\"+ imagesArray[0] +\"')\";  "; 
+                echo "setInterval(changeBackground, 10000); document.getElementById(\"bg-1\").style.backgroundImage = \"url('resources/backgrounds/\"+ imagesArray[0] +\"')\";  "; 
             } 
             $players[$steam_id] = floor(microtime(true) * 1000);
             file_put_contents($_SERVER["DOCUMENT_ROOT"] . "/data/players.json", json_encode($players));

@@ -11,6 +11,8 @@
 <div class="container flex-col align justify">
     <h1>Verify Your Identity</h1>
 
+    <div style="margin-top: 2vh"></div>
+
     <?php
 
         if (count($allowed_users) <= 0)
