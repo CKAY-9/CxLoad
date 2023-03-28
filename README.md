@@ -16,6 +16,8 @@
 - Style Changes
 - Automatic background detecting
 
+</br>
+
 ## Version 1.1 (3/12/22)
 - Added style selecting
 - Fixed spelling/grammar is some places
