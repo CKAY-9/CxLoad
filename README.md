@@ -7,12 +7,16 @@
 *Dates are in the `day/month/year` format*
 
 
-## Future Plans:
+## Future Plans
 - None at the moment, might revisit this later
 
 </br>
 
-## Version 1.1 (3/12/22):
+## Version 1.2 - Make It Better (28/3/23)
+- Style Changes
+- Automatic background detecting
+
+## Version 1.1 (3/12/22)
 - Added style selecting
 - Fixed spelling/grammar is some places
 - Made code more readable
@@ -23,7 +27,7 @@
 
 </br>
 
-## Version 1.0 (25/8/22):
+## Version 1.0 (25/8/22)
 - Initial Release
 
 </br>
