@@ -1,12 +1,6 @@
 # **CxLoad (PHP)**
 
-!!! This version of CxLoad uses PHP!!!
-
-### MAKE SURE YOU EDIT `./config.php` OR ELSE IT WILL NOT WORK!
-
-</br>
-
-*Dates are in the `day/month/year` format*
+**!!! This version of CxLoad uses PHP !!!**
 
 
 ## Future Plans
