@@ -1,4 +1,6 @@
-# **CxLoad**
+# **CxLoad (PHP)**
+
+!!! This version of CxLoad uses PHP!!!
 
 ### MAKE SURE YOU EDIT `./config.php` OR ELSE IT WILL NOT WORK!
 
