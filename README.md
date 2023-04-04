@@ -1,7 +1,4 @@
-# **CxLoad (PHP)**
-
-**!!! This version of CxLoad uses PHP !!!**
-
+# **CxLoad**
 
 ## Future Plans
 - None at the moment, might revisit this later
