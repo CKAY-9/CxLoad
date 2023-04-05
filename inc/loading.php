@@ -137,6 +137,7 @@
         echo json_encode($out); ?>;
 
         function changeBackground(){
+            if (imagesArray.length <= 1) return;
             $("#bg-1").fadeOut(1500)
             setTimeout(() => {
                 var index = imageIndex++ % imagesArray.length;
