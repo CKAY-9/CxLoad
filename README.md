@@ -1,12 +1,5 @@
 # **CxLoad**
 
-### MAKE SURE YOU EDIT `./config.php` OR ELSE IT WILL NOT WORK!
-
-</br>
-
-*Dates are in the `day/month/year` format*
-
-
 ## Future Plans
 - None at the moment, might revisit this later
 
