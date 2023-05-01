@@ -107,9 +107,20 @@
                     <select name="style" id="styleSelector">
                         <option value="default" <?php if ($display["loading_style"] == "default") { echo "selected"; } ?> >Default</option>
                         <option value="simple" <?php if ($display["loading_style"] == "simple") { echo "selected"; } ?>>Simple</option>
+                        <option value="simple-player" <?php if ($display["loading_style"] == "simple-player") { echo "selected"; } ?>>Simple Player</option>
                     </select>
                 </div>
                 <span>(Some styles may ignore preferences above)</span>
+            </div>
+            <div class="flex-row align gap-40">
+                <label>Show Gamemode Features</label> 
+                <a href="/update.php?disabled=gamemode_features" class="button">
+                    <?php 
+                        if ($display["gamemode_features"]) { echo "Disable"; } else {
+                            echo "Enable"; 
+                        } 
+                    ?>
+                </a>
             </div>
         </div>
     </div>

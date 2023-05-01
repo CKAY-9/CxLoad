@@ -74,7 +74,7 @@ img
 
 .name
 {
-    font-size: 100%;
+    font-size: 130%;
     font-family: "Roboto-Med"
 }
 
@@ -84,6 +84,11 @@ img
     border-radius: 50%;
     width: 4vw;
     height: 4vw;
+}
+
+#darkRPMoney, .lastJoin {
+    font-family: "Roboto-Med";
+    font-size: 90%;
 }
 
 h1
@@ -101,11 +106,32 @@ span
     font-size: 0.9vw;
 }
 
+#mainInfo {
+    display: flex;
+}
+#mainInfo div {
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+#userInfo {
+    display: flex;
+}
+#userInfo div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .loadingBar
 {
-    margin-top: 1vh;
+    margin-top: 0.5vh;
     width: 100%;
-    height: 1.5vh;
+    height: 1vh;
+    max-height: 1.5vh;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 1.5vh;
 
@@ -126,11 +152,6 @@ span
     position: absolute;
     width: 0%;
     background-color: rgba(89, 255, 56, 0.5);
-    height: 1.5vh;
+    height: 100%;
     border-radius: 1.5vh;
-}
-
-.lastJoin 
-{
-    font-family: "Roboto-Med"
 }

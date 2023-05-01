@@ -35,6 +35,9 @@
             case "loading":
                 $display["loading_bar"] = !$display["loading_bar"];
                 break;
+            case "gamemode_features":
+                $display["gamemode_features"] = !$display["gamemode_features"];
+                break;
             default:
                 break;
         }

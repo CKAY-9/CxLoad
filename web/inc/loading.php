@@ -32,7 +32,9 @@
 
     if (!isset($players[$steam_id]))
     {
-        $players += [$steam_id => floor(microtime(true) * 1000)];
+        $players += [$steam_id => [
+            "lastJoin" => floor(microtime(true) * 1000)
+        ]];
         file_put_contents($_SERVER["DOCUMENT_ROOT"] . "/data/players.json", json_encode($players));
     }
 ?>
@@ -63,8 +65,11 @@
                         <img src=<?php echo $data["response"]["players"][0]["avatarfull"] ?> alt="userIcon" class="userIcon" id="userIcon">
                         <div class="name" id="displayName"><?php echo $data["response"]["players"][0]["personaname"] ?></div>
                     </div>
-                    <div class="steamID" id="steamID">Steam ID: <?php echo $steam_id ?></div>
                     <div class="lastJoin" id="lastJoin"></div>
+                    <?php if (isset($players[$steam_id]["money"]) && $display["gamemode_features"]) { ?>
+                        <div class="darkRPMoney" id="darkRPMoney">DarkRP Cash: $<?php echo $players[$steam_id]["money"] ?></div>
+                    <?php } ?>
+                    <div class="steamID" id="steamID">Steam ID: <?php echo $steam_id ?></div>
                 </div>
             </section>
             <section id="mainInfo" class="flex-col align" <?php if (!$display["main_info"]) { echo "style='display: none'"; } ?> style="flex: 1; min-width: 30vw;">
@@ -83,7 +88,7 @@
                         </div>
                     </div>
 
-                    <div <?php if (!$display["loading_bar"]) { echo "style=\"display: none;\""; } ?> style="width: 100%" >
+                    <div class="flex-col justify align" <?php if (!$display["loading_bar"]) { echo "style=\"display: none;\""; } ?> style="width: 100%; height: 1vh;" >
                         <div id="loadStatus" style="margin-top: 2vh; text-align: center">Retrieving server info...</div>
                         <div class="loadingBar" id="loadingBar">
                             <div class="file" id="file">Workshop downloading...</div>
@@ -118,6 +123,13 @@
                         <img src="./resources/loading/max.svg" alt="maxPlayers">
                         <div class="maxPlayers" id="maxPlayers">Max players: <?php echo $_GET["maxPlayers"] ?></div>
                     </div>
+                    
+                    <?php if ($display["gamemode_features"]) { ?>
+                        <div class="flex-row gap-10 align">
+                            <img src="./resources/loading/game.svg" alt="gamemode">
+                            <div class="maxPlayers" id="maxPlayers">Gamemode: <?php echo $gamemode ?></div>
+                        </div>
+                    <?php } ?>
                 </div>
             </section>
         </div>
@@ -125,7 +137,7 @@
 
     <script src="../vendor/jQuery/jquery.js"></script>
     <script>
-        <?php echo "$(\"#lastJoin\").text(\"Last joined: \" + new Date(" . $players[$steam_id] . ").toLocaleDateString())"; ?>
+        <?php echo "$(\"#lastJoin\").text(\"Last joined: \" + new Date(" . $players[$steam_id]["lastJoin"] . ").toLocaleDateString())"; ?>
 
         var imageIndex = 1;
         
@@ -151,7 +163,7 @@
             {
                 echo "setInterval(changeBackground, 10000); document.getElementById(\"bg-1\").style.backgroundImage = \"url('resources/backgrounds/\"+ imagesArray[0] +\"')\";  "; 
             } 
-            $players[$steam_id] = floor(microtime(true) * 1000);
+            $players[$steam_id]["lastJoin"] = floor(microtime(true) * 1000);
             file_put_contents($_SERVER["DOCUMENT_ROOT"] . "/data/players.json", json_encode($players));
         ?>
     </script>

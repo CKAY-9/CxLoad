@@ -19,6 +19,6 @@
     
     <div style="margin-top: 5vh" class="flex-row gap-30">
         <a class="button" href="/edit.php">Config</a>
-        <a class="button" href="/load.php?web=true&maxPlayers=20&map=gm_sandbox&addr=127.0.0.1">Loading Screen</a>
+        <a class="button" href="/load.php?web=true&maxPlayers=20&map=gm_sandbox&addr=127.0.0.1&gamemode=sandbox">Loading Screen</a>
     </div>
 </div>

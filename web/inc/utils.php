@@ -30,6 +30,11 @@
             $display += ["background" => true];
             file_put_contents($_SERVER["DOCUMENT_ROOT"] . "/data/visuals.json", json_encode($display));
         }
+        if (!isset($display["gamemode_features"]))
+        {
+            $display += ["gamemode_features" => true];
+            file_put_contents($_SERVER["DOCUMENT_ROOT"] . "/data/visuals.json", json_encode($display));
+        }
         if (!isset($display["loading_bar"]))
         {
             $display += ["loading_bar" => true];
