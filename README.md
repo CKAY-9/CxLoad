@@ -1,4 +1,5 @@
 # CxLoad
+A loading screen for Garry's Mod
 
 # Usage
 ## Web
